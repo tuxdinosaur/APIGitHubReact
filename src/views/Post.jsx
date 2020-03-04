@@ -6,18 +6,16 @@ class Post extends Component {
   async onSubmit (post) {
     const token = window.sessionStorage.getItem('authorization')
 
-    const response = await window.fetch('http://localhost:8080/posts', {
+    const response = await window.fetch('https://api.github.com/users/kodemia/repos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         authorization: token
       },
       body: JSON.stringify({
-        title: post.title,
-        author: post.author,
-        imageUrl: post.image,
-        readingTime: post.readTime,
-        description: post.description
+        name: post.name,
+        createdAt: post.private,
+        id: post.id
       })
     })
 

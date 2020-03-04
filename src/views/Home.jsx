@@ -19,30 +19,25 @@ class Home extends Component {
         loading: true
       })
 
-      const token = window.sessionStorage.getItem('authorization')
+      const response = await window.fetch('https://api.github.com/users/kodemia/repos')
 
-      const response = await window.fetch('http://localhost:8080/posts', {
-        headers: { authorization: token }
-      })
+      const posts = await response.json()
+      //console.log(posts)
 
-      const payload = await response.json()
-
-      const posts = payload.data.posts.map((badPost) => ({
-        image: badPost.imageUrl,
-        title: badPost.title,
-        text: badPost.description,
-        readTime: badPost.readingTime
-      }))
+      //const posts = payload.map((badPost) => ({
+        //name: badPost.name,
+        //createdAt: badPost.private,
+        //avatar: badPost.owner.avatar_url
+      //}))
 
       this.setState({
         posts,
         loading: false
       })
-    }, 2000)
+    }, 300)
   }
 
   render () {
-    if (this.state.loading) return <AppLoading />
 
     return <PostList list={this.state.posts} />
   }

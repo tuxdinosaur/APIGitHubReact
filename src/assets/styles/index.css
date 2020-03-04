@@ -1,5 +1,18 @@
-.app .container {
+#container-app {
   padding-top: 2rem;
+}
+
+.navbar-brand {
+  color: black!important;
+}
+
+.bg-dark {
+  background: #c4c4c4!important;
+  color: black;
+}
+
+.col-12 {
+  display: flex;
 }
 
 .post-form {
@@ -14,4 +27,28 @@
 
   align-items: center;
   justify-content: center;
+}
+
+.card {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+img {
+  margin-right: 15px;
+}
+
+.card-img-top {
+  border-radius: 50%;
+  width: 50px;
+}
+
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }

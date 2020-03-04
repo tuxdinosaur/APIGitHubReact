@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
 
-import AppInput from './AppInput'
-import AppTextArea from './AppTextArea'
-
-import AppButton from './AppButton'
-
 class PostForm extends Component {
   constructor (props) {
     super(props)
@@ -39,11 +34,10 @@ class PostForm extends Component {
     }
 
     this.setState({
-      title: '',
+      name: '',
       author: '',
       description: '',
-      createdAt: new Date(),
-      image: ''
+      createdAt: new Date()
     })
   }
 
@@ -52,60 +46,11 @@ class PostForm extends Component {
       <div className='row post-form'>
         <form
           onSubmit={this.onSubmit.bind(this)}
-          className='col-6'
+          className=''
         >
-          <h1>Nuevo Post</h1>
+          <h1>Repositorios públicos Kodemia</h1>
 
-          <AppInput
-            id='author'
-            label='Autor'
-            type='text'
-            ariaDescribedBy='author name'
-            value={this.state.author}
-            onChange={this.onChange.bind(this)}
-          />
-
-          <AppInput
-            id='title'
-            label='Titulo'
-            type='text'
-            ariaDescribedBy='post title'
-            value={this.state.title}
-            onChange={this.onChange.bind(this)}
-          />
-
-          <AppTextArea
-            id='description'
-            label='Texto'
-            value={this.state.description}
-            onChange={this.onChange.bind(this)}
-          />
-
-          <AppInput
-            id='image'
-            label='Imagen'
-            type='text'
-            ariaDescribedBy='url image'
-            value={this.state.image}
-            onChange={this.onChange.bind(this)}
-          />
-
-          <AppButton
-            type='submit'
-            text='Guardar'
-            className='btn-primary'
-          />
         </form>
-
-        {
-          this.state.image ? (
-            <img
-              src={this.state.image}
-              alt='post preview'
-              className='col-6'
-            />
-          ) : 'Ingresa un valor de URL en el campo image'
-        }
       </div>
     )
   }

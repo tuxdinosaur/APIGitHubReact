@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PostCard from '../components/PostCard'
-import PostCardButtons from '../components/PostCard/PostCardButtons'
+import PostCardBackground from './PostCard/PostCardBackground'
 
 function PostList (props) {
   return (
@@ -10,18 +10,14 @@ function PostList (props) {
         props.list.map((post, index) => (
           <div
             key={post.id || `post-${index}`}
-            className='col-md-4'
+            className='col-12 col-md-6 col-lg-4'
           >
             <PostCard
-              title={post.title}
-              img={post.image}
-              text={post.text}
-              readTime={post.readTime}
+              name={post.name}
+              createdAt={post.private}
+              avatar={post.owner ? post.owner.avatar_url : ''}
+              id={post.id}
             >
-              <PostCardButtons
-                edit={post.edit}
-                view={post.view}
-              />
             </PostCard>
           </div>
         ))
